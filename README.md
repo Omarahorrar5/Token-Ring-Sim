@@ -21,24 +21,24 @@ Token.c : Contient le code C pour l'implémentation du Token Ring.
 
 Fonctionnalités Clés:
 
-Pipes : Utilisés pour la communication entre les processus.
+1. Pipes : Utilisés pour la communication entre les processus.
 
-Fork : Création de processus fils pour former l'anneau.
+2. fork : Création de processus fils pour former l'anneau.
 
-Synchronisation par Jeton : Le jeton est passé d'un processus à l'autre pour synchroniser les actions.
+3. Synchronisation par Jeton : Le jeton est passé d'un processus à l'autre pour synchroniser les actions.
 
 
 
 
 Déroulement du Programme
 
-Initialisation : Création de N pipes pour la communication entre les processus.
+1. Initialisation : Création de N pipes pour la communication entre les processus.
 
-Création de Processus : Chaque processus est créé via fork().
+2. Création de Processus : Chaque processus est créé via fork().
 
-Communication : Chaque processus ferme les pipes inutiles et utilise les pipes restants pour lire et écrire le jeton.
+3. Communication : Chaque processus ferme les pipes inutiles et utilise les pipes restants pour lire et écrire le jeton.
 
-Passage du Jeton : Le jeton est lu, une action est effectuée (affichage du jeton), puis le jeton est passé au prochain processus.
+4. Passage du Jeton : Le jeton est lu, une action est effectuée (affichage du jeton), puis le jeton est passé au prochain processus.
 
-Arrêt : Le processus s'arrête lorsque le jeton revient à 0.
+5. Arrêt : Le processus s'arrête lorsque le jeton revient à 0.
 
